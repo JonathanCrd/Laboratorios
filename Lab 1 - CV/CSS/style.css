@@ -1,0 +1,244 @@
+/*JONATHAN CARDENAS A00818821*/
+body{
+	font-family: 'Sarabun', sans-serif;
+	margin:0px;
+}
+
+h1{
+	font-size: 40px;
+	margin-bottom: 0px;
+}
+
+h2{
+	font-size: 22px;
+	color: #0e7566;
+}
+
+ul{
+	margin-top: 5px;
+	padding-left: 20px;
+}
+
+
+/*PARTE DEL HEADER SUPERIOR*/
+
+.header{
+	background: linear-gradient(to right bottom, #b05e8c, #a7639a, #9a69a7, #8a6fb2, #7776ba, #6580c3, #508ac8, #3a93ca, #2aa1cc, #2fafca, #47bbc5, #63c6bf);
+	padding: 20px;
+	min-height: 150px;
+	vertical-align: center;
+	color:white;
+}
+
+#tagline{
+	font-size: 20px;
+	font-weight: 50;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+.contactInfo{
+	border-radius: 5px;
+	float: right;
+	padding: 0px;
+	margin-right: 10px;
+	margin-bottom: 70px;
+	clear: ;
+}
+
+.contactInfo > div{
+	border-radius: 5px;
+	background: linear-gradient(to right, rgba(255,255,255,.2) 0%, rgba(204,204,255,0.5) 100%);
+	padding: 5px;
+	margin:5px;
+}
+
+.contactInfo > div >a{
+	color:white;
+	text-decoration: none;
+	padding: 5px;
+	font-weight: bold;
+}
+
+.contactInfo > div:hover{
+	background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(204,204,255,1) 100%);
+}
+
+.contactInfo > div >a:hover{
+	color:black;
+}
+
+#PP{
+	width: 150px;
+	clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+	margin-right: 20px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+
+/*ESTRUCTURA*/
+
+.container{
+	/*Contenedor principal por renglon*/
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-top:2px;
+	padding-bottom: 5px;
+	clear: both;
+}
+
+.sideColumn{
+	/*la mas pequeña, que cubra 33.3%
+	para poner 3 de estas en la parte de abajo*/
+	float: left;
+	width: 33%;
+	padding-bottom: 10px;
+}
+
+.sideColumn > div{
+	clear: both;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+.mainColumn{
+	/*lateral, cubre el otro 66.9% restante*/
+	clear: both;
+	padding-bottom: 10px;
+	overflow: hidden;
+	float: left;
+	width: 66.9%
+}
+
+.mainColumn > div{
+	/*Para organizar los elementos en grupos dentro de la misma columna*/
+	float: left;
+}
+
+.mainColumn > div > div{
+	/*Para que se respete el espacio de la imagen de la izquierda*/
+	float: left;
+}
+
+.fullWidthColumn{
+	/*Cubre todo el contenedor*/
+	clear: both;
+	padding-bottom: 10px;
+	overflow: hidden;
+}
+
+.fullWidthColumn > div{
+	float: left;
+}
+
+.halfColumn{
+	/*cubre el 50% del contenedor*/
+	width: 48%;
+	float: left;
+	overflow: hidden;
+	padding-right: 2%;
+}
+
+.halfColumn > div{
+	/*Para respetar el espacio de la imagen de la izq*/
+	overflow: hidden;
+}
+
+#withPadding{
+	/*Agrega un padding para separar cuando sea necesario*/
+	padding-right: 2%;
+	width: 31%;
+}
+
+
+/*TEXTO*/
+.institution{
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 5px;
+	margin: 0px;
+}
+
+.position{
+	font-weight: bold;
+	color:#202121;
+	font-size: 18px;
+	padding-top: 0px;
+	margin: 0px;
+}
+
+.role{
+	color:#202121;
+	font-size: 18px;
+	padding-top: 0px;
+	margin: 0px;
+}
+
+.description{
+	font-size: 16px;
+	padding-top: 5px;
+	margin: 0px;
+}
+
+/*DECORACIONES*/
+.logo{
+	padding: 5px;
+	float: left;
+	overflow: visible;
+}
+
+.logo > img{
+	max-width: 50px;
+	max-height: 50px;
+}
+
+.bubble{
+	float: left;
+	background: linear-gradient(to right, #9999ff 0%, #cc99ff 100%);
+	margin: 5px;
+	padding: 10px;
+	border-radius: 20px;
+	min-width: 20px;
+	color: white;
+}
+
+#mainSkill{
+	background: linear-gradient(to right, #9933ff 0%, #cc33ff 100%);
+}
+
+#decorativeTEC{
+	background-image: url("../IMG/RectoriaTEC.png");
+	background-attachment: fixed;
+	background-size: 100%;
+	padding-bottom: 20px;
+	overflow: hidden;
+	width: 100%;
+}
+
+#decorativeProject{
+	background-image: url("../IMG/tableauCourse.png");
+	background-attachment: fixed;
+	background-size: 100%;
+	padding-bottom: 20px;
+	overflow: hidden;
+	width: 100%;
+}
+
+#colorPink{
+	color: #8c336a;
+}
+
+#bubbleAqua{
+	background: linear-gradient(to right, #13a08c 0%, #5bb7aa 100%);
+}
+
+/*Footer inferior*/
+.footer{
+	background-color: #212121;
+	color: white;
+	font-size: 12px;
+	clear: both;
+	text-align: center;
+	padding: 10px;
+}
