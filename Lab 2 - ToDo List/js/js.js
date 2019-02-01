@@ -8,34 +8,36 @@ f.addEventListener('keyup',function(e){
 })
 
 let actualValue = 5;
-/*let lastNotDone = 5;*/
 
 /*Function to add element to list*/
 function addElement() {
-	/*Create the elements that are gonna be used*/
-	var newList = document.createElement("li");
-	var newInput = document.createElement("input");
-	var newSpan = document.createElement("span");
+	/*Check if is in not blank*/
+	if(document.getElementById('newitem').value != ""){
+		/*Create the elements that are gonna be used*/
+		var newList = document.createElement("li");
+		var newInput = document.createElement("input");
+		var newSpan = document.createElement("span");
 
-	/*Configure the Checkbox*/
-	newInput.type = "checkbox";
-	newInput.name = "todo";
-	newInput.setAttribute("onClick", "doneElement(this)");
-	newInput.value = actualValue + 1;
-	actualValue = actualValue +1;
+		/*Configure the Checkbox*/
+		newInput.type = "checkbox";
+		newInput.name = "todo";
+		newInput.setAttribute("onClick", "doneElement(this)");
+		newInput.value = actualValue + 1;
+		actualValue = actualValue +1;
 
-	/*Get the text*/
-	newSpan.textContent = document.getElementById('newitem').value;
+		/*Get the text*/
+		newSpan.textContent = document.getElementById('newitem').value;
 
-	/*Append the Span and Input to the list element*/
-	newList.appendChild(newInput);
-	newList.appendChild(newSpan);
+		/*Append the Span and Input to the list element*/
+		newList.appendChild(newInput);
+		newList.appendChild(newSpan);
 
-	/*Append the new list element into the actual list*/
-	document.getElementById("toDo").appendChild(newList);
+		/*Append the new list element into the actual list at the top*/
+		document.getElementById("toDo").insertBefore(newList, document.getElementById("toDo").childNodes[0]);
 
-	/*Reset the textfield to blank*/
-	document.getElementById('newitem').value = "";
+		/*Reset the textfield to blank*/
+		document.getElementById('newitem').value = "";
+	}
 }
 
 /*Function to check the element*/
@@ -53,7 +55,7 @@ function doneElement(element){
 		newInput.type = "checkbox";
 		newInput.name = "todo";
 		newInput.setAttribute("onClick", "doneElement(this)");
-		newInput.value = actualValue;
+		newInput.value = element.value;
 		newInput.checked = true; /*Now the checkbox is checked*/
 		newSpan.textContent = element.parentElement.getElementsByTagName("span")[0].textContent;
 		newSpan.classList.add("done"); /*Add the class done*/
@@ -62,14 +64,31 @@ function doneElement(element){
 		newList.appendChild(newSpan);
 
 		document.getElementById("toDo").appendChild(newList);
-
-		/*Remove the current element*/
-		element.parentNode.remove(element.parentElement);
-		element.parentNode.removeChild(element);
 	}
 	else{
-		element.parentElement.getElementsByTagName("span")[0].classList.remove("done");
+		/*Undone the element*/
+
+		/*Create the new element that is going to be append at the end*/
+		var newList = document.createElement("li");
+		var newInput = document.createElement("input");
+		var newSpan = document.createElement("span");
+
+		newInput.type = "checkbox";
+		newInput.name = "todo";
+		newInput.setAttribute("onClick", "doneElement(this)");
+		newInput.value = element.value;
+		newSpan.textContent = element.parentElement.getElementsByTagName("span")[0].textContent;
+
+		newList.appendChild(newInput);
+		newList.appendChild(newSpan);
+
+		document.getElementById("toDo").insertBefore(newList, document.getElementById("toDo").childNodes[0]);
+
 	}
+
+	/*Remove the current element*/
+	element.parentNode.remove(element.parentElement);
+	element.parentNode.removeChild(element);
 }
 
 function moveToEnd(element){
