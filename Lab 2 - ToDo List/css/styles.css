@@ -51,3 +51,15 @@ input[type="text"]:focus {
   text-decoration: line-through;
   color: #8f919c; 
 }
+
+
+li:hover > span{
+  visibility: visible;
+}
+
+.delete{
+  color:red;
+  font-style: italic;
+  visibility: hidden;
+  cursor: pointer;
+}

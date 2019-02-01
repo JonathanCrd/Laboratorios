@@ -17,6 +17,7 @@ function addElement() {
 		var newList = document.createElement("li");
 		var newInput = document.createElement("input");
 		var newSpan = document.createElement("span");
+		var newDelete = document.createElement("span");
 
 		/*Configure the Checkbox*/
 		newInput.type = "checkbox";
@@ -24,6 +25,9 @@ function addElement() {
 		newInput.setAttribute("onClick", "doneElement(this)");
 		newInput.value = actualValue + 1;
 		actualValue = actualValue +1;
+		newDelete.textContent = "Delete";
+		newDelete.classList.add("delete");
+		newDelete.setAttribute("onClick", "deleteElement(this)");
 
 		/*Get the text*/
 		newSpan.textContent = document.getElementById('newitem').value;
@@ -31,6 +35,7 @@ function addElement() {
 		/*Append the Span and Input to the list element*/
 		newList.appendChild(newInput);
 		newList.appendChild(newSpan);
+		newList.appendChild(newDelete);
 
 		/*Append the new list element into the actual list at the top*/
 		document.getElementById("toDo").insertBefore(newList, document.getElementById("toDo").childNodes[0]);
@@ -95,4 +100,8 @@ function moveToEnd(element){
 
 
 	return this;
+}
+
+function deleteElement(element){
+	element.parentNode.remove(element.parentElement);
 }

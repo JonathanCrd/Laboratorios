@@ -11,11 +11,11 @@
     <h1>TO DO</h1>
     <div class="list">
       <ul id="toDo">
-        <li><input type="checkbox" name="todo" value="1" onclick="doneElement(this)"><span>Hacer laboratorio de web</span></li>
-        <li><input type="checkbox" name="todo" value="2" onclick="doneElement(this)"><span>ejercicio</span></li>
-        <li><input type="checkbox" name="todo" value="3" onclick="doneElement(this)"><span>ir al super</span></li>
-        <li><input type="checkbox" name="todo" value="4" onclick="doneElement(this)"><span>preparar de cenar</span></li>
-        <li><input type="checkbox" name="todo" value="5" checked onclick="doneElement(this)"><span class="done">tomar 2 litros de agua</span></li>
+        <li><input type="checkbox" name="todo" value="1" onclick="doneElement(this)"><span>Hacer laboratorio de web</span><span class="delete" onclick="deleteElement(this)">delete</span></li>
+        <li><input type="checkbox" name="todo" value="2" onclick="doneElement(this)"><span>ejercicio</span><span class="delete" onclick="deleteElement(this)">delete</span></li>
+        <li><input type="checkbox" name="todo" value="3" onclick="doneElement(this)"><span>ir al super</span><span class="delete" onclick="deleteElement(this)">delete</span></li>
+        <li><input type="checkbox" name="todo" value="4" onclick="doneElement(this)"><span>preparar de cenar</span><span class="delete" onclick="deleteElement(this)">delete</span></li>
+        <li><input type="checkbox" name="todo" value="5" checked onclick="doneElement(this)"><span class="done">tomar 2 litros de agua</span><span class="delete" onclick="deleteElement(this)">delete</span></li>
       </ul>
       <input id="newitem" type="text" name="newitem">
     </div>
