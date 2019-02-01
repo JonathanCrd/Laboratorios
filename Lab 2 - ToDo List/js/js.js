@@ -25,7 +25,7 @@ function addElement() {
 		newInput.setAttribute("onClick", "doneElement(this)");
 		newInput.value = actualValue + 1;
 		actualValue = actualValue +1;
-		newDelete.textContent = "Delete";
+		newDelete.textContent = "delete";
 		newDelete.classList.add("delete");
 		newDelete.setAttribute("onClick", "deleteElement(this)");
 
@@ -65,7 +65,7 @@ function doneElement(element){
 		newInput.checked = true; /*Now the checkbox is checked*/
 		newSpan.textContent = element.parentElement.getElementsByTagName("span")[0].textContent;
 		newSpan.classList.add("done"); /*Add the class done*/
-		newDelete.textContent = "Delete";
+		newDelete.textContent = "delete";
 		newDelete.classList.add("delete");
 		newDelete.setAttribute("onClick", "deleteElement(this)");
 
@@ -89,7 +89,7 @@ function doneElement(element){
 		newInput.setAttribute("onClick", "doneElement(this)");
 		newInput.value = element.value;
 		newSpan.textContent = element.parentElement.getElementsByTagName("span")[0].textContent;
-		newDelete.textContent = "Delete";
+		newDelete.textContent = "delete";
 		newDelete.classList.add("delete");
 		newDelete.setAttribute("onClick", "deleteElement(this)");
 
@@ -106,12 +106,7 @@ function doneElement(element){
 	element.parentNode.removeChild(element);
 }
 
-function moveToEnd(element){
-
-
-	return this;
-}
-
+/*Function to delete an element*/
 function deleteElement(element){
 	element.parentNode.remove(element.parentElement);
 }
