@@ -56,6 +56,7 @@ function doneElement(element){
 		var newList = document.createElement("li");
 		var newInput = document.createElement("input");
 		var newSpan = document.createElement("span");
+		var newDelete = document.createElement("span");
 
 		newInput.type = "checkbox";
 		newInput.name = "todo";
@@ -64,9 +65,13 @@ function doneElement(element){
 		newInput.checked = true; /*Now the checkbox is checked*/
 		newSpan.textContent = element.parentElement.getElementsByTagName("span")[0].textContent;
 		newSpan.classList.add("done"); /*Add the class done*/
+		newDelete.textContent = "Delete";
+		newDelete.classList.add("delete");
+		newDelete.setAttribute("onClick", "deleteElement(this)");
 
 		newList.appendChild(newInput);
 		newList.appendChild(newSpan);
+		newList.appendChild(newDelete);
 
 		document.getElementById("toDo").appendChild(newList);
 	}
@@ -77,15 +82,20 @@ function doneElement(element){
 		var newList = document.createElement("li");
 		var newInput = document.createElement("input");
 		var newSpan = document.createElement("span");
+		var newDelete = document.createElement("span");
 
 		newInput.type = "checkbox";
 		newInput.name = "todo";
 		newInput.setAttribute("onClick", "doneElement(this)");
 		newInput.value = element.value;
 		newSpan.textContent = element.parentElement.getElementsByTagName("span")[0].textContent;
+		newDelete.textContent = "Delete";
+		newDelete.classList.add("delete");
+		newDelete.setAttribute("onClick", "deleteElement(this)");
 
 		newList.appendChild(newInput);
 		newList.appendChild(newSpan);
+		newList.appendChild(newDelete);
 
 		document.getElementById("toDo").insertBefore(newList, document.getElementById("toDo").childNodes[0]);
 
