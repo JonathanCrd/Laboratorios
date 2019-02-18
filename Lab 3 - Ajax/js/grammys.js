@@ -6,8 +6,8 @@ function getFields(){
 		dataType: "json",
 
 		success: function(data){
-			console.log(data);
-			let new_html= " ";
+			let new_html = " ";
+			new_html += `<option id="nulo">Select a category</option>`;
 			fields = data.fields;
 			for (var i = 0; i < data.fields.length; i++) {
 				new_html += `
@@ -72,7 +72,7 @@ function getInfoCategories(categories){
 function getInfoField(selectedField){
 	var new_html = "";
 	new_html += `<h2>${selectedField.field}</h2>`;
-	
+
 	if(selectedField.description != null){
 		new_html += `
 			<p class="description">
@@ -91,6 +91,10 @@ function getInfoField(selectedField){
 //Desencadenador de buscar la info para el field seleccionado
 $("#category_types").on('change', function(event){
 	let selected = $(this).val();
+	if(selected != "nulo"){
+		//Remove the "Select the category" option
+		$("#nulo").remove();
+	}
 	//Buscar por el valor seleccionado entre todos los Fields
 	for (var i = 0; i < fields.length; i++) {
 		if(fields[i].field_id == selected){
