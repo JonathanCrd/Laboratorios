@@ -9,9 +9,35 @@ body {
 }
 
 .container {
+  text-align: center;
   width: 700px;
   margin: auto;
   padding: 20px 0px;
+}
+
+.category {
+  width: 80%;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border: 5px;
+  border-color: #b69859;
+  box-shadow: 5px 5px 7px 0px #cacaca;
+  border-style: solid;
+  background-color: white;
+}
+
+.nomineeInfo {
+  color: #7c7c7c;
+  margin-top: 2px;
+}
+
+.artist {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
@@ -67,4 +93,14 @@ span {
 
 hr {
   margin-top: 30px;
+}
+
+li {
+  font-weight: bold;
+  list-style: none;
+  margin-top: 16px;
+}
+
+ul{
+  padding: 10px;
 }
