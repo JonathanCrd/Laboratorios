@@ -9,17 +9,19 @@ let city = "Monterrey Nuevo Leon";
 function getWeather(lat,long,callback) {
   request.get(`https://api.darksky.net/forecast/${credentials.DARK_SKY_SECRET_KEY}/${lat},${long}?lang=es&units=si`,
     function (error, response, body){
+      let jsonRequest = JSON.parse(body);
+      //Error handling
       if(error){
         callback("Error, Servicio no disponible", undefined)
-      } else if(response.body == 'Forbidden\n'){
+      } else if(jsonRequest == 'Forbidden\n'){
         callback('Credenciales incorrectas',undefined)
-      } else if(response.body.code == 400){
-          callback(response.body.error, undefined);
-      } else if(response.body == 'Not Found\n'){
+      } else if(jsonRequest.code == 400){
+          callback(jsonRequest.error, undefined);
+      } else if(jsonRequest == 'Not Found\n'){
         callback('Error, no se encontró el lugar',undefined)
       }
+      //Everything is fine
       else {
-        let jsonRequest = JSON.parse(body);
         let weatherData = {
           summary: jsonRequest.daily.data[0].summary,
           temperature: jsonRequest.currently.temperature,
@@ -36,7 +38,7 @@ function getGeo(city_name, callback) {
   request.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${city_name}.json?access_token=${credentials.MAPBOX_TOKEN}`,
   function (error, response, body){
     let jsonBody = JSON.parse(body);
-
+    //Error handling
     if (error){
       callback("Error, servicio no disponible",undefined)
     }else if(jsonBody.message == "Not Found"){
@@ -45,7 +47,8 @@ function getGeo(city_name, callback) {
       callback("Token Invalido", undefined);
     }else if(jsonBody.features.length == 0){
           callback("Error, lugar no encontrado", undefined)
-        }
+    }
+    //Everything is fine
     else{
       let coordinates = {
         long: jsonBody.features[0].center[0],
@@ -58,6 +61,7 @@ function getGeo(city_name, callback) {
 
 
 console.log(`CLIMA EN ${city.toUpperCase()}`);
+
 getGeo(city, function(error,response){
   if(error){
     console.log(error);
