@@ -1,4 +1,3 @@
-//Lab 5
 const credentials = require('./credentials');
 const request = require('request');
 
@@ -10,19 +9,19 @@ let city = "Monterrey Nuevo Leon";
 function getWeather(lat,long,callback) {
   request.get(`https://api.darksky.net/forecast/${credentials.DARK_SKY_SECRET_KEY}/${lat},${long}?lang=es&units=si`,
     function (error, response, body){
-      let jsonRequest = JSON.parse(body);
       //Error handling
       if(error){
         callback("Error, Servicio no disponible", undefined)
-      } else if(jsonRequest == 'Forbidden\n'){
+      } else if(response.body == 'Forbidden\n'){
         callback('Credenciales incorrectas',undefined)
-      } else if(jsonRequest.code == 400){
-          callback(jsonRequest.error, undefined);
-      } else if(jsonRequest == 'Not Found\n'){
+      } else if(response.body.code == 400){
+          callback(response.body.error, undefined);
+      } else if(response.body == 'Not Found\n'){
         callback('Error, no se encontró el lugar',undefined)
       }
       //Everything is fine
       else {
+        let jsonRequest = JSON.parse(body);
         let weatherData = {
           summary: jsonRequest.daily.data[0].summary,
           temperature: jsonRequest.currently.temperature,
