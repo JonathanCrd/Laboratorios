@@ -1,13 +1,15 @@
+//Lab 6
+//Jonathan Cardenas A00818821
 const path = require('path')
 const express = require('express')
 const weather = require('./weather.js')
 
 const app = express()
 
-const port = process.env.PORT || 3000;
+const port = 3000;
 
 app.get('/', function(req, res) {
-   res.send('<h1>Hola mundo!</h1>')
+   res.send('<h1>Lab 6 by Jonathan Cárdenas</h1>')
 });
 
 app.get('/weather', function(req, res) {
@@ -23,26 +25,19 @@ app.get('/weather', function(req, res) {
         error: error
       })
     }
-    //const movie = response
       res.send({
-        response
-        /*
-        title: movie.title,
-        plot: movie.plot,
-        rating: movie.rating
-        */
+        location: req.query.search,
+        weather: response
       })
     }
   )
 })
-
 
 app.get('*', function(req, res) {
   res.send({
     error: 'Esta ruta no existe'
   })
 })
-
 
 app.listen(port, function() {
   console.log('up and running')

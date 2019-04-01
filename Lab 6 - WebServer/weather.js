@@ -1,3 +1,5 @@
+//Lab 6 based on previous labs
+//Jonathan Cardenas A00818821
 const credentials = require('./credentials');
 const request = require('request');
 
